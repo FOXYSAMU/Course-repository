@@ -1,0 +1,31 @@
+
+browser->server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser: returns the message in json-string
+
+note over  spa.js
+The SPA version of the app uses the 
+javascript code it fetched from the server,
+it instructs the server to fetch the form-element from the page, 
+and to register an event handler to handle the form submit event.
+also the code will prevent the default handling of form submit
+sending a new HTTP GET request.
+
+then the spa.js makes the same functions as the main.js
+in the Notes page. (creates a new note, adds it to the notes list, 
+rerenders the note list on the page and sends the new note to the server)
+
+the code determines that the data is to be sent with an HTTP POST request 
+and the data type is to be json. Then the data is sent as json-string.
+end note
+
+note over browser
+browser only sends one request to the server,
+it stays on the same page, 
+and it sends no further HTTP requests
+end note
+
+note over server
+server responds with status 201 created
+and this time the server doesnt ask for
+a redirect
+end note
